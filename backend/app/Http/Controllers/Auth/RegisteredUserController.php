@@ -35,7 +35,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+        $userWithDetails = User::with('details')->findOrFail(Auth::user()->id);
+        
 
-        return response()->json(Auth::user());
+        return response()->json($userWithDetails);
     }
 }

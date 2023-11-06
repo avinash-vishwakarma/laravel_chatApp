@@ -11,6 +11,15 @@ const NavSlider = ({ showSlider, closeSlider }) => {
   const [sliderClass, setSliderClass] = useState("");
 
   const auth = useSelector((store) => store.auth);
+  const authUserImage = auth.user?.details?.image;
+  let UserImage;
+  if (authUserImage) {
+    UserImage =
+      "http://127.0.0.1:8000/images/user-profile-images/" + authUserImage;
+  } else {
+    UserImage =
+      "http://127.0.0.1:8000/images/user-profile-images/place-holder-image.jpg";
+  }
 
   useEffect(() => {
     if (showSlider) {
@@ -49,13 +58,15 @@ const NavSlider = ({ showSlider, closeSlider }) => {
 
               {/* <!-- User Thumbnail --> */}
               <div className="user-profile">
-                <img src={MyImage} alt="" />
+                <img src={auth.isLogin ? UserImage : MyImage} alt="" />
               </div>
 
               {/* <!-- User Info --> */}
               <div className="user-info">
-                <h6 className="user-name mb-0">Avinash Vishwakarma</h6>
-                <span>Full Stack Developer</span>
+                <h6 className="user-name mb-0">
+                  {auth.user?.name || "Avinash Vishwakarma"}
+                </h6>
+                <span>{auth.user?.email || "Full Stack Developer"}</span>
               </div>
             </div>
 
