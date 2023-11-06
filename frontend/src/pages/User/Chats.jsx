@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useRef, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import ChatUser from "../../components/ui/Chat/ChatUser";
+import Modal from "../../components/ui/Modal";
 // import { Swiper, SwiperSlide } from "swiper/react";
 
 export const chatsLoader = async () => {
@@ -13,24 +14,39 @@ export const chatsLoader = async () => {
     return err;
   }
 };
+
 const Chats = () => {
   const conversations = useLoaderData();
-  // const [allConversations, setAllConversations] = useState(conversations);
-
-  // console.log(conversations);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const addButtonClickHandler = () => {
+    setShowAddModal(true);
+  };
 
   return (
     <div className="container">
       <div className="add-new-contact-wrap">
-        <Link
-          className="shadow"
-          to="/find-users"
-          data-bs-toggle="modal"
-          data-bs-target="#addnewcontact"
-        >
+        <a onClick={addButtonClickHandler} className="shadow">
           <i className="bi bi-plus-lg"></i>
-        </Link>
+        </a>
       </div>
+      <Modal
+        show={showAddModal}
+        onCloseHandler={setShowAddModal.bind(null, false)}
+      >
+        <Modal.Header onCloseHandler={setShowAddModal.bind(null, false)}>
+          Chat Options
+        </Modal.Header>
+        <Modal.Body>
+          <Link to="/create-new-group" className="btn btn-primary w-100 mb-2">
+            <i className="bi bi-people-fill mx-2"></i>
+            Create New Group
+          </Link>
+          <Link to="/find-users" className="btn btn-primary w-100">
+            <i className="bi bi-person-add mx-2"></i>
+            Find Users
+          </Link>
+        </Modal.Body>
+      </Modal>
       {/* <!-- Chat User List --> */}
       <ul className="ps-0 chat-user-list">
         {conversations.map((chat) => (

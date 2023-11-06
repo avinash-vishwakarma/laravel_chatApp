@@ -28,6 +28,7 @@ import Chats, { chatsLoader } from "./pages/User/Chats";
 import FindUser from "./pages/User/FindUser";
 import Chat, { chatLoader } from "./pages/User/Chat";
 import Profile from "./pages/User/Profile";
+import CreateNewGroup from "./pages/User/CreateNewGroup";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -73,6 +74,7 @@ const App = () => {
             <Route path="/chats" loader={chatsLoader} element={<Chats />} />
             <Route path="/find-users" element={<FindUser />} />
             <Route path="/user-profile" element={<Profile />} />
+            <Route path="/create-new-group" element={<CreateNewGroup />} />
           </Route>
           <Route index element={<Home />} />
           <Route path="*" element={<NotFound />} />

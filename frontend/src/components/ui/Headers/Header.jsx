@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ChatLogo from "./AppLogo.png";
 
 const Header = ({ toggleSlider }) => {
   return (
@@ -10,7 +11,7 @@ const Header = ({ toggleSlider }) => {
           {/*  Logo Wrapper  */}
           <div className="logo-wrapper">
             <Link to="/">
-              <img src="/img/core-img/logo.png" alt="" />
+              <img src={ChatLogo} alt="" />
             </Link>
           </div>
 

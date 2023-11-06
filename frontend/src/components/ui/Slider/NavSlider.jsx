@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import BackDrop from "../BackDrop";
 import NavSliderLink from "./NavSliderLink";
 import { useSelector } from "react-redux";
+import MyImage from "../../../pages/Avinashvishwakarma.png";
 
 // Helpers
 
@@ -48,13 +49,13 @@ const NavSlider = ({ showSlider, closeSlider }) => {
 
               {/* <!-- User Thumbnail --> */}
               <div className="user-profile">
-                <img src="/img/bg-img/2.jpg" alt="" />
+                <img src={MyImage} alt="" />
               </div>
 
               {/* <!-- User Info --> */}
               <div className="user-info">
-                <h6 className="user-name mb-0">Affan Islam</h6>
-                <span>CEO, Designing World</span>
+                <h6 className="user-name mb-0">Avinash Vishwakarma</h6>
+                <span>Full Stack Developer</span>
               </div>
             </div>
 
@@ -93,25 +94,11 @@ const NavSlider = ({ showSlider, closeSlider }) => {
                 </>
               )}
             </ul>
-
-            {/* <!-- Social Info --> */}
-            <div className="social-info-wrap">
-              <a href="#">
-                <i className="bi bi-facebook"></i>
-              </a>
-              <a href="#">
-                <i className="bi bi-twitter"></i>
-              </a>
-              <a href="#">
-                <i className="bi bi-linkedin"></i>
-              </a>
-            </div>
-
             {/* <!-- Copyright Info --> */}
             <div className="copyright-info">
               <p>
                 <span id="copyrightYear"></span>
-                &copy; Made by <a href="#">Designing World</a>
+                &copy; Made by <a href="#">Avinash Vishwakarma</a>
               </p>
             </div>
           </div>

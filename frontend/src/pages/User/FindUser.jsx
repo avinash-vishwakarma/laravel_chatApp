@@ -56,8 +56,8 @@ const FindUser = () => {
         </div>
       </div>
 
-      <div class="element-heading">
-        <h6 class="ps-1">Search Result</h6>
+      <div className="element-heading">
+        <h6 className="ps-1">Search Result</h6>
       </div>
 
       <div className="ps-0 chat-user-list">
